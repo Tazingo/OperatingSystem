@@ -1,0 +1,14 @@
+
+Modified files:
+	 shell/xsh_reset.c	Add reset command to shell
+	 compile/Makefile	In order to compile .c files in apps/
+	 shell/xsh_prodcons.c	Assignment2
+	 shell/shell.c
+	 include/shprototype.h
+	 apps/comsumer.c
+	 apps/producer.c
+
+Questions:
+	1. No, I don't think so. Producer generate number and this number will be assigned to global variable n, and Consumer read the global variable n.
+	2. No. Producer and Consumer are not concurrent processes on my board.
+
