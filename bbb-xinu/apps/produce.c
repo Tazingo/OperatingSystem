@@ -7,10 +7,12 @@ void producer(int count)
 	//produced value should get assigned to global variable 'n'.
 	//print produced value e.g. produced : 8
   int i = 0;
-  while(i< 5)
+  while(i< count)
   {
-    n = rand() % count;
+    wait(consumed);
+    n = i;
     printf("produced: %d\n", n);    
     i++;
+    signal(produced);
   } 
 }

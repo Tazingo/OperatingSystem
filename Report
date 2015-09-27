@@ -1,3 +1,17 @@
+Assignment3:
+
+Modified files:
+	 shell/xsh_prodcons.c
+	 include/prodcons.h
+	 apps/producer.c
+	 apps/consumer.c
+
+Questions:
+	1.Semaphore has 2 status, using(1) and free(0). Wait() function will block the current process and wait to the signal becomes to free. Signal() function will change the current status to free. So that, in this assignment, the main() function set the signal consumed to using(1) and produced to free(0) at begining. For next step, producer generate a number n and fire a signal to consumer, consumer will consume the number and send a signal to release the producer process.
+	2.No.
+===============
+
+Assignment2:
 
 Modified files:
 	 shell/xsh_reset.c	Add reset command to shell
