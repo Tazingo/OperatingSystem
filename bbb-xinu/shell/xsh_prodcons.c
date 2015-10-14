@@ -14,7 +14,7 @@ shellcmd xsh_prodcons(int nargs, char *args[])
     printf("Usage: %s <Integer>\n\n", args[0]);
     return OK;
   }
-  if(nargs == 2 && strncom(args[1], "-f", 7) == 0){
+  if(nargs == 2 && strncmp(args[1], "-f", 7) == 0){
     future *f1, *f2, *f3;
  
     f1 = future_alloc(FUTURE_EXCLUSIVE);

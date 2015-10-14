@@ -1,3 +1,18 @@
+Assignment4
+
+Modified files:
+	 apps/future_prod.c
+	 apps/future_cons.c
+	 include/future.h
+	 shell/xsh_prodcons.c
+	 system/future_alloc.c
+	 system/future_get.c
+	 system/future_free.c
+	 system/future_set.c
+
+
+===============
+
 Assignment3:
 
 Modified files:
