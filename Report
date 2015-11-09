@@ -1,3 +1,32 @@
+Assignment6
+
+Modified files:
+	 shell/xsh_free.c 9.1
+	 	print free memory block
+	 Assignment_6.txt 9.4
+
+	 system/userret.c 9.7
+	 	print stack that process used when it exit
+
+===============
+
+Assignment5
+
+Modified files:
+	 apps/future_prod.c
+	 apps/future_cons.c
+	 include/future.h
+	 shell/xsh_prodcons.c
+	 system/future_alloc.c
+	 system/future_get.c
+	 system/future_free.c
+	 system/future_set.c
+
+	 implemented queue struct and 2 more flags for future
+
+===============
+
+
 Assignment4
 
 Modified files:

@@ -1,0 +1,2 @@
+9.4
+If system allocate memory of heap and stack permanently, the free memory stroed in memlist will be less and less. When memlist doesn't have any free memory, the function getmem and getstk cannot allocate memory anymore by calling these functions. However, if the system only use static memory allocation mechanism, the system doesn't need to maintain the linked list memlist anymore, the memory cost is less than the regular memory management.
