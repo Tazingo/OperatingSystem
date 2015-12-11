@@ -69,6 +69,7 @@ status	arp_resolve (
 
 		if (arptr->arstate == AR_RESOLVED) {
 			memcpy(mac, arptr->arhaddr, ARP_HALEN);
+			arptr->arptime = clktime;
 			restore(mask);
 			return OK;
 		}
@@ -95,6 +96,7 @@ status	arp_resolve (
 	arptr->arstate = AR_PENDING;
 	arptr->arpaddr = nxthop;
 	arptr->arpid = currpid;
+	arptr->arptime = clktime;
 
 	/* Hand-craft an ARP Request packet */
 
@@ -252,6 +254,7 @@ void	arp_in (
 		arptr->arpaddr = pktptr->arp_sndpa;
 		memcpy(arptr->arhaddr, pktptr->arp_sndha, ARP_HALEN);
 		arptr->arstate = AR_RESOLVED;
+		arptr->arptime = clktime;
 	}
 
 	/* Hand-craft an ARP reply packet and send back to requester	*/

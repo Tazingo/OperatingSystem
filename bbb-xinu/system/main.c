@@ -17,11 +17,11 @@ process	main(void)
 	/* Start the network */
 
 	//ethinit(&devtab[ETHER0]);
-
+/*
 	uint32	*macaddr = 0x44e10630;
 	kprintf("mac addr: %x %x\n", *macaddr, *(macaddr+1));
 	int32 i;
-/*	for(i = 0; i < 6; i++) {
+	for(i = 0; i < 6; i++) {
 		NetData.ethucast[i] = i;
 		NetData.ethbcast[i] = 0xff;
 	}*/
@@ -38,12 +38,17 @@ process	main(void)
 
 	// Commented by Bryce Himebaugh on 9/02/1015. Generating run time error messages. 
 	// netstart();
+	char bbb_ipaddr[] = "192.168.1.101";
+	char bbb_router[] = "192.168.1.255";
+
+/* Start the network */
+	netstart(bbb_ipaddr,bbb_router);
 
 	kprintf("\n...creating a shell\n");
 	recvclr();
 	resume(create(shell, 8192, 50, "shell", 1, CONSOLE));
 
-	/* Wait for shell to exit and recreate it */
+/* Wait for shell to exit and recreate it */
 
 	while (TRUE) {
 		receive();
@@ -52,4 +57,4 @@ process	main(void)
 		resume(create(shell, 4096, 20, "shell", 1, CONSOLE));
 	}
 	return OK;
-}
+}	

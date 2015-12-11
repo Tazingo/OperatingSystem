@@ -72,6 +72,8 @@ process	netin ()
 {
 	struct	netpacket *pkt;		/* Ptr to current packet	*/
 	int32	retval;			/* Return value from read	*/
+	int32 i;
+	struct arpentry *arptr;
 
 	/* Do forever: read a packet from the network and process */
 
@@ -91,6 +93,19 @@ process	netin ()
 		/* Convert Ethernet Type to host order */
 
 		eth_ntoh(pkt);
+
+		/* remove arp entries */
+		for(i=0; i < ARP_SIZ; i++){
+			arptr = &arpcache[i];
+			if(arptr->arstate == AR_FREE || arptr->arstate == AR_PENDING){
+				continue;
+			}else{
+				if((clktime - arptr->arptime)>300){
+					memset((char*)&arpcache[i],
+						NULLCH, sizeof(struct arpentry));
+				}
+			}
+		}
 
 		/* Demultiplex on Ethernet type */
 
